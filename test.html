@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+    <div id="productos-grid"></div>
+    <script>
+        console.log("Script cargado");
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("DOM cargado");
+            const grid = document.getElementById('productos-grid');
+            if (grid) {
+                grid.innerHTML = '<p>JavaScript funciona!</p>';
+                console.log("Grid encontrado y modificado");
+            } else {
+                console.log("Grid NO encontrado");
+            }
+        });
+    </script>
+</body>
+</html>

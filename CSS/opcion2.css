@@ -1,0 +1,1246 @@
+/* ===== VARIABLES Y RESET ===== */
+:root {
+    /* Colores inspirados en el mezcal y Oaxaca */
+    --color-primary: #8B4513;
+    /* Marrón tierra */
+    --color-secondary: #D4AF37;
+    /* Dorado mezcal */
+    --color-accent: #228B22;
+    /* Verde agave */
+    --color-dark: #2C1810;
+    /* Marrón oscuro */
+    --color-light: #F5F5DC;
+    /* Beige claro */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+
+    /* Gradientes personalizados */
+    --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+    --gradient-earth: linear-gradient(135deg, #8B4513 0%, #2C1810 100%);
+    --gradient-agave: linear-gradient(135deg, #228B22 0%, #006400 100%);
+
+    /* Sombras */
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 15px rgba(0, 0, 0, 0.2);
+    --shadow-heavy: 0 15px 30px rgba(0, 0, 0, 0.3);
+
+    /* Bordes */
+    --border-radius: 8px;
+    --border-radius-lg: 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.6;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    overflow-x: hidden;
+}
+
+/* ===== TIPOGRAFÍA INNOVADORA ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: var(--gradient-gold);
+    border-radius: 2px;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== BOTONES INNOVADORES ===== */
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+}
+
+.btn-primary {
+    background: var(--gradient-gold);
+    color: var(--color-dark);
+    box-shadow: var(--shadow-light);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-light);
+    border: 2px solid var(--color-secondary);
+    box-shadow: var(--shadow-light);
+}
+
+.btn-secondary:hover {
+    background: var(--color-secondary);
+    color: var(--color-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* ===== HEADER Y NAVEGACIÓN INNOVADORES ===== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(44, 24, 16, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo img {
+    height: 60px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-left: 2rem;
+}
+
+.nav-menu a {
+    color: var(--color-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.carrito-icon {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.carrito-icon span {
+    background: var(--color-accent);
+    color: var(--color-white);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--color-light);
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+/* ===== SECCIÓN HERO INNOVADORA ===== */
+.hero {
+    height: 160vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(44, 24, 16, 0.7), rgba(44, 24, 16, 0.5)), url('../IMAGES/header.jpg') center/cover;
+    color: var(--color-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('IMAGES/pattern-agave.png') repeat;
+    opacity: 0.1;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-20px) translateX(20px);
+    }
+
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 2rem;
+    z-index: 2;
+}
+
+.logo-hero img {
+    height: 220px;
+    margin-bottom: 2rem;
+    margin-top: 74px;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.hero-social {
+    margin-top: 2rem;
+}
+
+.hero-social p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    background: rgba(212, 175, 55, 0.3);
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+/* ===== SECCIÓN CATÁLOGO INNOVADORA ===== */
+.catalogo {
+    padding: 5rem 0;
+    background: var(--color-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.catalogo h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.catalogo>.container>p {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    font-size: 1.2rem;
+}
+
+.categorias {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.categoria-btn {
+    padding: 10px 20px;
+    border: 2px solid var(--color-primary);
+    background: transparent;
+    color: var(--color-primary);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+}
+
+.categoria-btn.active,
+.categoria-btn:hover {
+    background: var(--gradient-gold);
+    color: var(--color-dark);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.producto-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.producto-imagen {
+    height: 250px;
+    overflow: hidden;
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.producto-card:hover .producto-imagen img {
+    transform: scale(1.1);
+}
+
+.producto-info {
+    padding: 1.5rem;
+}
+
+.producto-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+}
+
+.producto-precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+
+.producto-boton {
+    width: 100%;
+    padding: 10px;
+    background: var(--gradient-gold);
+    color: var(--color-dark);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.producto-boton:hover {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+/* ===== MODAL INNOVADOR ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background: var(--color-white);
+    margin: 5% auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+    animation: modalAppear 0.5s ease;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2rem;
+    color: var(--color-dark);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--color-secondary);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-imagen {
+    height: 300px;
+    overflow: hidden;
+}
+
+.modal-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 2rem;
+}
+
+.modal-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.modal-detalles p {
+    margin-bottom: 0.5rem;
+}
+
+.cantidad-selector {
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.cantidad-selector label {
+    margin-right: 1rem;
+    font-weight: 600;
+}
+
+.cantidad-selector input {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+#agregar-carrito-modal {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+}
+
+/* ===== SECCIÓN EMPRESA INNOVADORA ===== */
+.empresa {
+    padding: 5rem 0;
+    background: var(--color-dark);
+    color: var(--color-light);
+}
+
+.empresa h2 {
+    color: var(--color-light);
+}
+
+.empresa h2::after {
+    background: var(--gradient-gold);
+}
+
+.empresa-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.empresa-texto h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-secondary);
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.valor-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+}
+
+.valor-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-secondary);
+    box-shadow: var(--shadow-medium);
+}
+
+.valor-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.valor-item h4 {
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.empresa-imagen {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+}
+
+.empresa-imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.empresa-imagen:hover img {
+    transform: scale(1.05);
+}
+
+.imagen-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: var(--color-light);
+    text-align: center;
+    font-style: italic;
+}
+
+/* ===== SECCIÓN PROCESO INNOVADORA ===== */
+.proceso {
+    padding: 5rem 0;
+    background: var(--color-light);
+}
+
+.proceso-pasos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.paso {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.paso:nth-child(even) {
+    direction: rtl;
+}
+
+.paso:nth-child(even) .paso-texto {
+    direction: ltr;
+}
+
+.paso-imagen {
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.paso-imagen img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.paso:hover .paso-imagen img {
+    transform: scale(1.05);
+}
+
+.paso-texto h3 {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ===== SECCIÓN EVENTOS INNOVADORA ===== */
+.eventos {
+    padding: 5rem 0;
+    background: var(--color-dark);
+    color: var(--color-light);
+}
+
+.eventos h2 {
+    color: var(--color-light);
+}
+
+.eventos h2::after {
+    background: var(--gradient-gold);
+}
+
+.slogan {
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--color-secondary);
+    margin-bottom: 3rem;
+}
+
+.eventos-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.evento-info h3 {
+    color: var(--color-secondary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.evento-info h4 {
+    color: var(--color-secondary);
+    margin: 1.5rem 0 1rem;
+}
+
+.evento-info ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.evento-info li {
+    margin-bottom: 0.5rem;
+}
+
+.eventos-lista li {
+    margin-bottom: 0.8rem;
+}
+
+.cta-eventos {
+    background: rgba(212, 175, 55, 0.1);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    border-left: 4px solid var(--color-secondary);
+    margin-top: 2rem;
+}
+
+.cta-eventos p {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.evento-imagen {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+}
+
+.evento-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.evento-imagen:hover img {
+    transform: scale(1.05);
+}
+
+.tours h3 {
+    color: var(--color-secondary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.tour-opciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tour-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.tour-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-secondary);
+    box-shadow: var(--shadow-heavy);
+}
+
+.tour-item h4 {
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+
+.tour-item span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-secondary);
+    margin: 1rem 0;
+}
+
+.tour-item ul {
+    text-align: left;
+    margin: 1.5rem 0;
+}
+
+.tour-item li {
+    margin-bottom: 0.5rem;
+}
+
+.reservar-tour {
+    width: 100%;
+}
+
+/* ===== SECCIÓN CONTACTO INNOVADORA ===== */
+.contacto {
+    padding: 5rem 0;
+    background: var(--color-light);
+}
+
+.contacto-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contacto-info h3 {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contacto-datos p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.contacto-datos i {
+    margin-right: 10px;
+    color: var(--color-secondary);
+    width: 20px;
+}
+
+.redes-sociales {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.redes-sociales a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gradient-gold);
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.redes-sociales a:hover {
+    transform: translateY(-3px) scale(1.1);
+}
+
+.contacto-form {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-medium);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* ===== FOOTER INNOVADOR ===== */
+footer {
+    padding: 3rem 0 1rem;
+    color: var(--color-light);
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 24, 16, 0.9);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-logo img {
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+.footer-logo p {
+    margin-bottom: 1.5rem;
+}
+
+.redes-footer {
+    display: flex;
+    gap: 1rem;
+}
+
+.redes-footer a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.redes-footer a:hover {
+    background: var(--color-secondary);
+    transform: translateY(-3px);
+}
+
+.redes-footer img {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-links h4,
+.footer-contacto h4 {
+    color: var(--color-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--color-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-links a i {
+    margin-right: 10px;
+    color: var(--color-secondary);
+}
+
+.footer-links a:hover {
+    color: var(--color-secondary);
+    transform: translateX(5px);
+}
+
+.footer-contacto p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.footer-contacto i {
+    margin-right: 10px;
+    color: var(--color-secondary);
+    width: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== WHATSAPP FLOAT INNOVADOR ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: var(--shadow-heavy);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-float i {
+    font-size: 1.8rem;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .empresa-content,
+    .eventos-content,
+    .contacto-content {
+        grid-template-columns: 1fr;
+    }
+
+    .paso {
+        grid-template-columns: 1fr;
+    }
+
+    .paso:nth-child(even) {
+        direction: ltr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--color-dark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 1rem 0;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .productos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .modal-body {
+        flex-direction: column;
+    }
+
+    .modal-imagen {
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .categorias {
+        gap: 0.5rem;
+    }
+
+    .categoria-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .tour-opciones {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== ANIMACIONES ADICIONALES ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Efecto de aparición al hacer scroll */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
