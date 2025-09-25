@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mezcal Artesanal Tradicional - Para todo mal, un mezcal</title>
+    <link rel="stylesheet" href="CSS/opcion2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5211234567890?text=Hola,%20me%20interesa%20saber%20más%20sobre%20sus%20productos"
+        class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="IMAGES/LOGO2.png" alt="Mezcal Artesanal">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#empresa">Nuestra Empresa</a></li>
+                    <li><a href="#proceso">Proceso</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#carrito" class="carrito-icon"><i class="fas fa-shopping-cart"></i> <span
+                                id="contador-carrito">0</span></a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Sección Inicio -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="logo-hero">
+                <img src="IMAGES/LOGO2.png" alt="Mezcal Artesanal">
+            </div>
+            <h1>Para todo mal, un mezcal. Y para todo bien también.</h1>
+            <p>Descubre el auténtico sabor del mezcal artesanal, elaborado con tradición y pasión por generaciones.
+                Cada gota cuenta una historia de 130 años de dedicación y amor por nuestra tierra oaxaqueña.</p>
+            <div class="hero-buttons">
+                <a href="#catalogo" class="btn-primary">Explorar Nuestros Sabores</a>
+                <a href="#eventos" class="btn-secondary">Crear un Momento Inolvidable</a>
+            </div>
+
+            <!-- Iconos de redes sociales agregados -->
+            <div class="hero-social">
+                <p>Síguenos en nuestras redes sociales:</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <img src="images/ico/facebook_109862.ico" alt="Facebook">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="images/ico/whatsapp_109861.ico" alt="WhatsApp">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="images/ico/instagam_109863.ico" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sección Catálogo -->
+    <section id="catalogo" class="catalogo">
+        <div class="container">
+            <h2>Nuestros Productos</h2>
+            <p>Explora nuestra selección de mezcales artesanales, cada uno con su carácter único</p>
+
+            <!-- Filtros de categorías -->
+            <div class="categorias">
+                <button class="categoria-btn active" data-categoria="todos">Todos</button>
+                <button class="categoria-btn" data-categoria="mezcales">Mezcales</button>
+                <button class="categoria-btn" data-categoria="reposados">Reposados</button>
+                <button class="categoria-btn" data-categoria="destilados">Destilados</button>
+                <button class="categoria-btn" data-categoria="curados">Curados</button>
+                <button class="categoria-btn" data-categoria="cremas">Cremas</button>
+                <button class="categoria-btn" data-categoria="avocados">Avocados</button>
+                <button class="categoria-btn" data-categoria="recuerdos">Recuerdos</button>
+                <button class="categoria-btn" data-categoria="merch">Merch</button>
+            </div>
+
+            <!-- Grid de productos -->
+            <div class="productos-grid" id="productos-grid">
+                <!-- Los productos se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de producto -->
+    <div id="modal-producto" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-imagen">
+                    <img id="modal-img" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h3 id="modal-titulo"></h3>
+                    <p id="modal-descripcion"></p>
+                    <div class="modal-detalles">
+                        <p><strong>Sabor:</strong> <span id="modal-sabor"></span></p>
+                        <p><strong>Contenido:</strong> <span id="modal-cantidad"></span></p>
+                        <p><strong>Precio:</strong> $<span id="modal-precio"></span> MXN</p>
+                    </div>
+                    <div class="cantidad-selector">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" id="cantidad" min="1" value="1">
+                    </div>
+                    <button id="agregar-carrito-modal" class="btn-primary">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Empresa -->
+    <section id="empresa" class="empresa">
+        <div class="container">
+            <h2>Nuestra Historia</h2>
+            <p>Conoce la tradición y pasión que nos impulsa a crear el mejor mezcal artesanal</p>
+            <div class="empresa-content">
+                <div class="empresa-texto">
+                    <h3>Generaciones de Tradición y Pasión</h3>
+                    <p>Desde 1890, nuestra familia ha dedicado su vida a la elaboración del auténtico mezcal artesanal,
+                        preservando las técnicas ancestrales que han pasado de generación en generación. Lo que comenzó
+                        como un sueño familiar hoy es un legado que compartimos con el mundo.</p>
+
+                    <div class="valores-grid">
+                        <div class="valor-item">
+                            <div class="valor-icon">🎯</div>
+                            <h4>Misión</h4>
+                            <p>Preservar y compartir la tradición del mezcal artesanal, elaborando productos de la más
+                                alta calidad que honren nuestras raíces y cultura. Cada botella lleva consigo el alma de
+                                Oaxaca.</p>
+                        </div>
+                        <div class="valor-item">
+                            <div class="valor-icon">👁️</div>
+                            <h4>Visión</h4>
+                            <p>Ser reconocidos a nivel mundial como la marca de mezcal artesanal que mejor representa la
+                                autenticidad y tradición de México, llevando nuestro sabor único a cada rincón del
+                                planeta.</p>
+                        </div>
+                        <div class="valor-item">
+                            <div class="valor-icon">❤️</div>
+                            <h4>Valores</h4>
+                            <p>Tradición, Calidad, Autenticidad, Sustentabilidad y Pasión por lo que hacemos.
+                                Cada proceso es un tributo a nuestras raíces y un compromiso con el futuro.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="empresa-imagen">
+                    <img src="IMAGES/cremaM.jpg" alt="Nuestra tradición familiar">
+                    <div class="imagen-overlay">
+                        <p>Desde 1890 elaborando tradición</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proceso -->
+    <section id="proceso" class="proceso">
+        <div class="container">
+            <h2>Proceso Artesanal</h2>
+            <p>Descubre cómo transformamos el agave en el elixir más puro y tradicional</p>
+
+            <div class="proceso-pasos">
+                <div class="paso">
+                    <div class="paso-imagen">
+                        <img src="IMAGES/maguey.jpg" alt="Cosecha del agave">
+                    </div>
+                    <div class="paso-texto">
+                        <h3>1. Cosecha del Agave</h3>
+                        <p>Seleccionamos cuidadosamente agaves maduros de 8 a 12 años, cortando las pencas hasta obtener
+                            la piña.</p>
+                    </div>
+                </div>
+
+                <div class="paso">
+                    <div class="paso-imagen">
+                        <img src="IMAGES/maguey.jpg" alt="Cocción del agave">
+                    </div>
+                    <div class="paso-texto">
+                        <h3>2. Cocción en Horno de Tierra</h3>
+                        <p>Las piñas se cueven en hornos de piedra subterráneos durante 3 a 5 días, lo que les da su
+                            sabor ahumado característico.</p>
+                    </div>
+                </div>
+
+                <div class="paso">
+                    <div class="paso-imagen">
+                        <img src="IMAGES/destilado1.jpg" alt="Molienda tradicional">
+                    </div>
+                    <div class="paso-texto">
+                        <h3>3. Molienda con Tahona</h3>
+                        <p>Utilizamos una tahona (rueda de piedra) tirada por caballos para extraer el jugo del agave
+                            cocido.</p>
+                    </div>
+                </div>
+
+                <div class="paso">
+                    <div class="paso-imagen">
+                        <img src="IMAGES/destilado.jpg" alt="Fermentación natural">
+                    </div>
+                    <div class="paso-texto">
+                        <h3>4. Fermentación Natural</h3>
+                        <p>El jugo fermenta en tinas de madera durante 7 a 12 días, utilizando levaduras naturales del
+                            ambiente.</p>
+                    </div>
+                </div>
+
+                <div class="paso">
+                    <div class="paso-imagen">
+                        <img src="IMAGES/3.jpg" alt="Destilación artesanal">
+                    </div>
+                    <div class="paso-texto">
+                        <h3>5. Doble Destilación</h3>
+                        <p>Destilamos dos veces en alambiques de cobre para purificar y concentrar los sabores del
+                            mezcal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Eventos y Publicidad -->
+    <section id="eventos" class="eventos">
+        <div class="container">
+            <div class="section-header">
+                <h2>¡Creamos Momentos Inolvidables!</h2>
+                <p class="slogan">"Pa'rriba, pa'bajo, pa'l centro y pa'dentro"</p>
+            </div>
+
+            <div class="eventos-content">
+                <div class="evento-info">
+                    <h3>✨ Le damos vida a tus ideas y diseños 💡</h3>
+                    <p>Transformamos tus momentos especiales en recuerdos eternos con mezcal personalizado.
+                        Cada botella cuenta tu historia y hace único cada celebración.</p>
+
+                    <h4>¿Por qué elegirnos para tu evento?</h4>
+                    <ul>
+                        <li><strong>Diseño 100% Personalizado:</strong> Desde la etiqueta hasta la botella</li>
+                        <li><strong>Asesoría Experta:</strong> Te guiamos en cada paso del proceso</li>
+                        <li><strong>Calidad Garantizada:</strong> El mismo mezcal premium de siempre</li>
+                        <li><strong>Entregas Puntuales:</strong> Nos adaptamos a tus tiempos</li>
+                    </ul>
+
+                    <p>Haz de tus eventos especiales algo único con botellas y etiquetas personalizadas para:</p>
+                    <ul class="eventos-lista">
+                        <li>🎉 Bodas - El regalo perfecto para tus invitados</li>
+                        <li>🎓 Graduaciones - Celebra los logros académicos</li>
+                        <li>👶 Bautizos - Un recuerdo que perdurará para siempre</li>
+                        <li>💃 XV Años - Haz única la celebración</li>
+                        <li>🏢 Eventos Corporativos - Impresiona a tus clientes</li>
+                        <li>🎂 Cumpleaños - Regalos memorables</li>
+                        <li>🍽️ Restaurantes y Hoteles - Producto exclusivo para tu establecimiento</li>
+                    </ul>
+
+                    <div class="cta-eventos">
+                        <p>"El mezcal no solo alegra el corazón, también hace eternos los momentos especiales"</p>
+                        <a href="#contacto" class="btn-primary">¡Quiero Personalizar Mi Evento!</a>
+                    </div>
+                </div>
+                <div class="evento-imagen">
+                    <img src="IMAGES/BOTELLA_PERSONALIZADA.jpg" alt="Mezcal personalizado para eventos">
+                    <div class="imagen-overlay">
+                        <p>Tu evento, tu diseño, nuestro mezcal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tours">
+                <h3>🎭 Vive la Experiencia Completa: Tour y Degustación</h3>
+                <p>Sumérgete en el mundo del mezcal con nuestros tours exclusivos. Conoce nuestro palenque,
+                    descubre los secretos de elaboración y disfruta de una degustación guiada por nuestros maestros
+                    mezcaleros.</p>
+
+                <div class="tour-opciones">
+                    <div class="tour-item">
+                        <h4>Tour Básico</h4>
+                        <p>Ideal para principiantes. Recorrido completo por la fábrica + Degustación de 3 mezcales
+                            premium</p>
+                        <span>$250 por persona</span>
+                        <ul>
+                            <li>Duración: 2 horas</li>
+                            <li>Grupos de 5-15 personas</li>
+                            <li>Guía especializado</li>
+                        </ul>
+                        <button class="btn-secondary reservar-tour" data-tour="basico">Reservar Ahora</button>
+                    </div>
+                    <div class="tour-item">
+                        <h4>Tour Premium</h4>
+                        <p>Experiencia completa. Recorrido VIP + Degustación de 5 mezcales + Botella de regalo + Snacks
+                            regionales</p>
+                        <span>$500 por persona</span>
+                        <ul>
+                            <li>Duración: 3 horas</li>
+                            <li>Grupos de 2-8 personas</li>
+                            <li>Maestro mezcalero personal</li>
+                        </ul>
+                        <button class="btn-secondary reservar-tour" data-tour="premium">Vivir la Experiencia</button>
+                    </div>
+                    <div class="tour-item">
+                        <h4>Evento Privado</h4>
+                        <p>Exclusividad total. Tour privado + Degustación premium + Área privada para eventos + Catering
+                            tradicional</p>
+                        <span>Consultar precio</span>
+                        <ul>
+                            <li>Duración: 4+ horas</li>
+                            <li>Hasta 50 personas</li>
+                            <li>Personalización completa</li>
+                        </ul>
+                        <button class="btn-secondary reservar-tour" data-tour="privado">Solicitar Cotización</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="contacto-content">
+                <div class="contacto-info">
+                    <h3>¡Hablemos!</h3>
+                    <p>Estamos aquí para responder cualquier pregunta sobre nuestros productos, eventos o tours.</p>
+                    <div class="contacto-datos">
+                        <p><i class="fas fa-map-marker-alt"></i> Carretera a Oaxaca Km 12, Tlacolula, Oaxaca</p>
+                        <p><i class="fas fa-phone"></i> +52 123 456 7890</p>
+                        <p><i class="fas fa-envelope"></i> info@mezcalartesanal.com</p>
+                    </div>
+                    <div class="redes-sociales">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="contacto-form">
+                    <form id="form-contacto">
+                        <div class="form-group">
+                            <label for="nombre-contacto">Nombre</label>
+                            <input type="text" id="nombre-contacto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email-contacto">Correo electrónico</label>
+                            <input type="email" id="email-contacto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        style="background: linear-gradient(rgba(13, 13, 13, 0.9), rgba(0, 6, 1, 0.277)), url('IMAGES/matatlan.jpg') center/cover;">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="IMAGES/LOGO2.png" alt="Mezcal Artesanal">
+                    <p>El auténtico sabor de Oaxaca, generación tras generación.</p>
+                    <div class="redes-footer">
+                        <a href="https://facebook.com" target="_blank"><img src="IMAGES/ICO/facebook_109862.ico"
+                                alt="Facebook"></a>
+                        <a href="https://instagram.com" target="_blank"><img src="IMAGES/ICO/instagam_109863.ico"
+                                alt="Instagram"></a>
+                        <a href="https://twitter.com" target="_blank"><img src="IMAGES/ICO/whatsapp_109861.ico"
+                                alt="Twitter"></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Descubre Más</h4>
+                    <ul>
+                        <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="#catalogo"><i class="fas fa-wine-bottle"></i> Catálogo</a></li>
+                        <li><a href="#empresa"><i class="fas fa-history"></i> Nuestra Historia</a></li>
+                        <li><a href="#proceso"><i class="fas fa-industry"></i> Proceso Artesanal</a></li>
+                        <li><a href="#eventos"><i class="fas fa-calendar-alt"></i> Eventos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contacto">
+                    <h4>Contáctanos</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Carretera a Oaxaca Km 12, Tlacolula, Oaxaca</p>
+                    <p><i class="fas fa-phone"></i> +52 123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> info@mezcalartesanal.com</p>
+                    <p><i class="fas fa-clock"></i> Lunes a Sábado: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Almas Aventureras Mezcal Tradicional. Todos los derechos reservados. | El sabor que une
+                    generaciones</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="JAVASCRIPT/PRODUCTOS.js"></script>
+    <script src="JAVASCRIPT/CARRITO.js"></script>
+    <script src="JAVASCRIPT/INDEX.js"></script>
+</body>
+
+</html>
